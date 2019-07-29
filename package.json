@@ -1,0 +1,31 @@
+{
+  "name": "nodejs_guide",
+  "version": "1.0.0",
+  "description": "Learn NodeJS / Express / GraphSQL /...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALiceHanhNguyen/nodejs.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "graphsql..."
+  ],
+  "author": "Hanh Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ALiceHanhNguyen/nodejs/issues"
+  },
+  "homepage": "https://github.com/ALiceHanhNguyen/nodejs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1",
+    "pug": "^2.0.4"
+  }
+}

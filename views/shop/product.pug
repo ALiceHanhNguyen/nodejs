@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet', href='css/main.css')
+    title Shopping Ladies
+  body
+    nav
+      ul
+        li
+          a(href='/product-list') Shop
+        li
+          a(href='/product') Product
+    main
+      h3 Add product
+      form(action='/add-product', method='post')
+        input(type='text', name='productName')
+        button(type='submit') ADD
