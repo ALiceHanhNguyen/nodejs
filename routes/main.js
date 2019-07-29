@@ -1,19 +1,13 @@
 const express = require('express');
-const path = require('path');
 
 const router = express.Router();
 
-const pathDir = require('../util/path');
+const productComponent = require('../components/product');
+const mainComponent = require('../components/main');
 
-const products = [];
+router.get('/', productComponent.getProducts);
 
-router.get('/', (req, res, next) => {
-    res.render('shop/product');
-});
+router.use(mainComponent.getError404);
 
-router.use((req, res, next) => {
-    res.status(404).sendFile(path.join(pathDir, 'views', '404.html'));
-});
+module.exports = router;
 
-exports.Routes = router;
-exports.Products = products;
