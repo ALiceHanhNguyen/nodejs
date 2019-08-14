@@ -1,0 +1,29 @@
+extends ./../main.pug
+
+block content
+  h3 #{editing ? 'Edit Product' : 'Add Product'} 
+  form(action=`${ editing ? `/admin/edit-product/productId=${ product.id }` : '/admin/add-product' }`, method='post')
+    div(class="container")
+      div(class='row')
+        div(class='col-3')
+          label(for="title") Title
+        div(class='col-9')  
+          input(type='text', name='title', value=`${ editing ? product.title : '' }`)
+      div(class='row')
+        div(class='col-3')
+          label(for="imageUrl") Image Url
+        div(class='col-9')
+          input(type="text", name='imageUrl', value=`${ editing ? product.imageUrl : '' }`)
+      div(class='row')
+        div(class='col-3')
+          label(for="price") Price
+        div(class='col-9')
+          input(type='number', name='price', step='0.01', value=`${ editing && product.price }`)
+      div(class='row')
+        div(class='col-3')
+          label(for="description") Description
+        div(class='col-9')
+          textarea(name="description", cols="30", rows="5") #{editing && product.description}
+      div(class='row')
+        div(class='col')
+          button(type='submit') #{editing ? 'Edit Product' : 'Add Product'} 

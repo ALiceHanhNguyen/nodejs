@@ -1,0 +1,36 @@
+extends ./../main.pug
+
+block content
+  h3 Cart ...
+  if cart.products && cart.products.length > 0
+    div(class="cart-list")
+      table(class='table table-bordered')
+        thead
+          tr
+            th(scope='col') ID
+            th(scope='col') Title
+            th(scope='col') Image
+            th(scope='col') Price
+            th(scope='col') Quality
+            th(scope='col') Delete
+        tbody
+          each ct in cart.products
+            tr
+              th(scope='col') #{ct.id}
+              td #{ct.title}
+              td
+                img(src=ct.imageUrl, alt="", width="100")
+              td #{ct.price}
+              td
+                input(type="number", name="qty", step=1, value=ct.qty)
+              td
+                form(action="/cart/delete-product", method="post")
+                  input(type="hidden", name="productId", value=ct.id)
+                  button(type="submit", class='btn btn-info')
+                    i(class='far fa-trash-alt')
+          tr
+            th(scope='col') Total
+            td(colspan="5") #{cart.totalPrice}
+          
+
+        

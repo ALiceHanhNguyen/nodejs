@@ -6,8 +6,8 @@ const path = require('path');
 const app = express();
 
 const pathDir = require('./util/path');
-const mainRouter = require('./routes/main');
-const productRouter = require('./routes/product');
+const shopRouter = require('./routes/shop');
+const adminRouter = require('./routes/admin');
 
 app.set('view engine', 'pug');
 app.set('views', 'views');
@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(pathDir, 'public')));
 
 
-app.use(productRouter);
-app.use(mainRouter);
+app.use('/admin', adminRouter);
+app.use(shopRouter);
 
 // app.listen(8080) tương đương (https://github.com/expressjs/express/blob/master/lib/application.js)
 // const server = http.createServer(app);

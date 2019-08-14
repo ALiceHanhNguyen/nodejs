@@ -1,0 +1,16 @@
+extends ./../main.pug
+
+block content
+  h3 Product List
+  div(class="product-list")
+    each product in prods
+      div(class="card product-item", style="width: 18rem;")
+        img(src=product.imageUrl, alt="", class='card-img-top')
+        div(class='card-body')
+          h5(class='card-title') #{product.title}
+          p(class='card-text') #{product.description}
+          div(class='card-text') #{product.price} 
+          a(class='btn btn-info', href=`/admin/edit-product/productId=${product.id}&&editing=${product.id ? true : false}`) Edit
+          form(action="/admin/delete-product", method="post")
+            input(type="hidden", name="productId", value=product.id)
+            button(type="submit", class='btn btn-info') Delete

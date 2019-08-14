@@ -1,0 +1,12 @@
+extends ./../main.pug
+
+block content
+  h3 Information Details
+  if product
+    div(class="card product-item", style="width: 18rem;")
+      img(src=product.imageUrl, alt="", class='card-img-top')
+      div(class='card-body')
+        h5(class='card-title') #{product.title}
+        p(class='card-text') #{product.description}
+        div(class='card-text') #{product.price} 
+        include ./../includes/add-to-cart.pug
